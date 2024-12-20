@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
 import { AlignJustify } from "lucide-react";
+import { CircleX } from "lucide-react";
 
 export default function Navbar() {
   const navLinks = [
@@ -32,7 +33,7 @@ export default function Navbar() {
 
           <div className="sm:hidden">
             <button onClick={toggleMenu} className="text-white">
-              {isOpen ? "Close" : <AlignJustify />}
+              {isOpen ? <CircleX /> : <AlignJustify />}
             </button>
           </div>
 
