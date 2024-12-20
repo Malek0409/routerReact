@@ -1,21 +1,35 @@
+import { NavLink } from "react-router";
+
 export default function Navbar() {
   return (
     <nav className="bg-gray-800 p-4">
       <ul className="flex space-x-4">
         <li>
-          <a href="/" className="text-white hover:text-gray-300">
+          <NavLink
+            to="/"
+            className="text-white hover:text-gray-300"
+            activeClassName="text-gray-400"
+          >
             Home
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/about" className="text-white hover:text-gray-300">
+          <NavLink
+            to="/about"
+            className="text-white hover:text-gray-300"
+            activeClassName="text-gray-400"
+          >
             About
-          </a>
+          </NavLink>
         </li>
         <li>
-          <a href="/contact" className="text-white hover:text-gray-300">
+          <NavLink
+            to="/contact"
+            className="text-white hover:text-gray-300"
+            activeClassName="text-gray-400"
+          >
             Contact
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>
