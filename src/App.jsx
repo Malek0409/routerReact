@@ -1,23 +1,18 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import "./index.css";
-
-function PageAcueil() {
-  return <h1>page acceuil</h1>;
-}
-function PageAbout() {
-  return (
-    <main>
-      <h1>page about</h1>
-    </main>
-  );
-}
+import Home from "./App/Page/Home/Home";
+import About from "./App/Page/About/About";
+import Navbar from "./loyout/Navbar";
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<PageAcueil />} />
-      <Route path="/about" element={<PageAbout />} />
-    </Routes>
+    <div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </div>
   );
 }
 
