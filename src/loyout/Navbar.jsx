@@ -1,7 +1,23 @@
 import { useState } from "react";
 import { NavLink } from "react-router";
+import { AlignJustify } from "lucide-react";
 
 export default function Navbar() {
+  const navLinks = [
+    {
+      path: "/",
+      label: "Home",
+    },
+    {
+      path: "/about",
+      label: "About",
+    },
+    {
+      path: "/contact",
+      label: "Contact",
+    },
+  ];
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -16,41 +32,36 @@ export default function Navbar() {
 
           <div className="sm:hidden">
             <button onClick={toggleMenu} className="text-white">
-              {isOpen ? "Close" : "Menu"}
+              {isOpen ? "Close" : <AlignJustify />}
             </button>
           </div>
 
           <div className="hidden sm:flex sm:space-x-4">
-            <NavLink to="/" className="text-white hover:text-gray-300">
-              Home
-            </NavLink>
-            <NavLink to="/about" className="text-white hover:text-gray-300">
-              About
-            </NavLink>
-            <NavLink to="/contact" className="text-white hover:text-gray-300">
-              Contact
-            </NavLink>
+            {navLinks.map((link) => (
+              <NavLink
+                key={link.path}
+                to={link.path}
+                className="text-white hover:text-gray-300"
+              >
+                {link.label}
+              </NavLink>
+            ))}
           </div>
         </div>
       </div>
 
       <div className={`sm:hidden ${isOpen ? "block" : "hidden"}`}>
         <ul className="space-y-4 p-4">
-          <li>
-            <NavLink to="/" className="text-white hover:text-gray-300">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/about" className="text-white hover:text-gray-300">
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact" className="text-white hover:text-gray-300">
-              Contact
-            </NavLink>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.path}>
+              <NavLink
+                to={link.path}
+                className="text-white hover:text-gray-300"
+              >
+                {link.label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </div>
     </nav>
